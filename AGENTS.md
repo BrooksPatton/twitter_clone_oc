@@ -153,27 +153,7 @@ Always run `npx auth@latest` (not a pinned version) so the CLI matches the insta
 
 ---
 
-## 7. Review Discipline
-
-For any non-trivial change — schema modifications, auth config, tRPC procedure logic, CI config, or security-relevant code — invoke the `@review` subagent on the diff **before committing**. It runs in isolated context on a separate model to catch what the builder misses.
-
-**What triggers a review:**
-- Schema changes (new table, column added/removed/renamed, constraint change)
-- Auth config changes (`auth.ts`, `additionalFields`, session config)
-- New or modified tRPC procedures (especially auth guards and input validation)
-- CI/CD workflow changes (`.github/workflows/`)
-- Any code touching Cloudflare R2 presigned URL generation or session handling
-
-**What skips review:**
-- Purely mechanical changes (renaming a local variable, fixing a typo, updating a comment)
-- Dependency version bumps that Dependabot has already flagged as safe
-- Style-only changes that ESLint/Prettier would flag automatically
-
-**Process:** paste the diff → invoke `@review` → address or consciously dismiss every raised issue → then commit. Review is a deliberate, scoped, manually-invoked step — not an automatic trigger on every file save.
-
----
-
-## 8. Phases
+## 7. Phases
 
 ### ✅ Phase 1 — Foundation · **CURRENT FOCUS**
 
